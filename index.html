@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cam Clarkson | Advocacy & Technology Portfolio</title>
+    <style>
+        :root {
+            --primary: #1f2937;
+            --secondary: #5b4db8;
+            --accent-red: #ef4444;
+            --accent-orange: #f97316;
+            --accent-yellow: #eab308;
+            --accent-green: #22c55e;
+            --accent-blue: #3b82f6;
+            --pride-gradient: linear-gradient(90deg, #ef4444 0%, #f97316 20%, #eab308 40%, #22c55e 60%, #3b82f6 80%, #a855f7 100%);
+            --gray-light: #f9fafb;
+            --gray-mid: #9ca3af;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, system-ui, sans-serif;
+            color: var(--primary);
+            background: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 5%;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-circle {
+            width: 34px;
+            height: 34px;
+            background: var(--pride-gradient);
+            border-radius: 8px; /* Modern squircle */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 900;
+            font-size: 0.9rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--primary);
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: var(--transition);
+            opacity: 0.7;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        nav a:hover {
+            opacity: 1;
+            color: var(--secondary);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 90vh;
+            padding: 8rem 5% 4rem;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 4rem;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .hero-content {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--gray-light);
+            padding: 6px 16px;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .hero-badge span {
+            width: 8px;
+            height: 8px;
+            background: var(--accent-green);
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 10px var(--accent-green);
+        }
+
+        .hero-content h1 {
+            font-size:clamp(2.5rem, 5vw, 4.5rem);
+            line-height: 1.05;
+            margin-bottom: 1.5rem;
+            font-weight: 900;
+            letter-spacing: -2px;
+        }
+
+        .gradient-text {
+            background: var(--pride-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-text {
+            font-size: 1.15rem;
+            color: #4b5563;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 12px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .hero-image-container {
+            position: relative;
+        }
+
+        .hero-image {
+            width: 100%;
+            border-radius: 32px;
+            box-shadow: 0 30px 60px -12px rgba(0,0,0,0.25);
+            transition: var(--transition);
+        }
+
+        /* Bento Grid Advocacy */
+        .section {
+            padding: 6rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            margin-bottom: 4rem;
+        }
+
+        .section-tag {
+            font-weight: 800;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--secondary);
+            display: block;
+            margin-bottom: 0.75rem;
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, auto);
+            gap: 1.5rem;
+        }
+
+        .bento-item {
+            background: var(--gray-light);
+            padding: 2.5rem;
+            border-radius: 24px;
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.03);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .bento-item:hover {
+            background: white;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            border-color: var(--secondary);
+            transform: scale(1.02);
+        }
+
+        .bento-item.large {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        .bento-year {
+            font-weight: 800;
+            color: var(--gray-mid);
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .bento-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+        }
+
+        /* Expertise Grid */
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .expertise-card {
+            padding: 2rem;
+            border-radius: 20px;
+            background: #111827;
+            color: white;
+        }
+
+        .expertise-icon {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            width: 48px;
+            height: 48px;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+        }
+
+        /* Tel Aviv Connection */
+        .pride-banner {
+            background: #000;
+            color: white;
+            padding: 4rem;
+            border-radius: 40px;
+            margin: 2rem 5%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .pride-banner-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .pride-banner-content {
+            max-width: 600px;
+        }
+
+        .pride-banner h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .pride-details {
+            display: flex;
+            gap: 2rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .pride-stat {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--gray-mid);
+        }
+
+        .stat-value {
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .pride-banner-image {
+            width: 100%;
+            height: 450px;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .pride-banner-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .pride-banner-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            padding: 6rem 5% 2rem;
+            background: var(--gray-light);
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0 4rem;
+        }
+
+        .social-link {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .copyright {
+            font-size: 0.8rem;
+            color: var(--gray-mid);
+            border-top: 1px solid rgba(0,0,0,0.05);
+            padding-top: 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero { grid-template-columns: 1fr; text-align: center; }
+            .hero-content { display: flex; flex-direction: column; align-items: center; }
+            .hero-text { margin: 0 auto 2rem; }
+            .bento-grid { grid-template-columns: repeat(2, 1fr); }
+            .bento-item.large { grid-column: span 2; grid-row: span 1; }
+            .pride-banner-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+            .pride-banner-image { height: 350px; }
+        }
+
+        @media (max-width: 640px) {
+            .nav-links { display: none; }
+            .bento-grid { grid-template-columns: 1fr; }
+            .bento-item.large { grid-column: span 1; }
+            .pride-banner { padding: 2.5rem; }
+            .pride-banner h2 { font-size: 2rem; }
+            .pride-details { flex-direction: column; gap: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">
+            <div class="logo-circle">CC</div>
+            <span>CAM CLARKSON</span>
+        </div>
+        <div class="nav-links">
+            <a href="#advocacy">Advocacy</a>
+            <a href="#professional">Professional</a>
+            <a href="#delegation">Delegation</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge"><span></span> Proposed Candidate • 2026 Delegation</div>
+            <h1>The Intersection of <span class="gradient-text">Human Rights</span> &amp; Digital Innovation.</h1>
+            <p class="hero-text">Bridging the gap between the Rainbow Community and Enterprise Technology. Over a decade of frontline advocacy in Sydney and New Zealand, powered by a career in the Salesforce ecosystem.</p>
+            <div class="cta-group">
+                <a href="#contact" class="btn btn-primary">Connect with Cam</a>
+                <a href="#advocacy" class="btn" style="border: 1px solid var(--primary);">View Journey</a>
+            </div>
+        </div>
+        <div class="hero-image-container">
+            <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/74ff443f-ed53-4641-b8e8-9c0e0bb5aff6" alt="Cam Clarkson" class="hero-image">
+        </div>
+    </section>
+
+    <section class="section" id="advocacy">
+        <div class="section-header">
+            <span class="section-tag">Frontline Advocacy</span>
+            <h2>Pride &amp; HIV Leadership</h2>
+        </div>
+
+        <div class="bento-grid">
+            <div class="bento-item large">
+                <div>
+                    <div class="bento-year">2021 — 2022</div>
+                    <h3 class="bento-title">Chair, Body Positive New Zealand</h3>
+                    <p>Executive leadership of NZ's primary HIV advocacy organization. Directed national strategy, stakeholder engagement, and community health initiatives during pivotal policy shifts.</p>
+                </div>
+            </div>
+            
+            <div class="bento-item">
+                <div>
+                    <div class="bento-year">2022 — 2023</div>
+                    <h3 class="bento-title" style="font-size: 1.2rem;">Auckland Council Advisory</h3>
+                    <p style="font-size: 0.9rem;">Represented Rainbow voices in public policy and city planning for the Auckland region.</p>
+                </div>
+            </div>
+
+            <div class="bento-item">
+                <div>
+                    <div class="bento-year">2013 — 2018</div>
+                    <h3 class="bento-title" style="font-size: 1.2rem;">ENUF Ambassador</h3>
+                    <p style="font-size: 0.9rem;">Combating HIV stigma through high-impact education with Positive Life Victoria.</p>
+                </div>
+            </div>
+
+            <div class="bento-item">
+                <div>
+                    <div class="bento-year">2015 — 2019</div>
+                    <h3 class="bento-title" style="font-size: 1.2rem;">Sydney Mardi Gras</h3>
+                    <p style="font-size: 0.9rem;">YourGen working group and Youth Engagement strategy for Sydney's premier festival.</p>
+                </div>
+            </div>
+
+            <div class="bento-item">
+                <div>
+                    <div class="bento-year">Current</div>
+                    <h3 class="bento-title" style="font-size: 1.2rem;">Positive Life NSW</h3>
+                    <h4 style="font-size: 0.8rem; color: var(--secondary); margin-bottom: 0.5rem;">Board Member</h4>
+                    <p style="font-size: 0.9rem;">Advising on the lived experience of young people living with HIV in Australia.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="professional" style="background: #000; color: white; border-radius: 60px 60px 0 0; margin-top: 4rem;">
+        <div class="section-header">
+            <span class="section-tag" style="color: var(--accent-blue);">Professional Core</span>
+            <h2 style="color: white;">Platform Mastery &amp; Community Building</h2>
+            <p style="color: var(--gray-mid); margin-top: 1rem; max-width: 600px;">Harnessing enterprise technology to drive social change. 10+ years within the Salesforce ecosystem as both a manager and community leader.</p>
+        </div>
+
+        <div class="expertise-grid">
+            <div class="expertise-card">
+                <div class="expertise-icon">☁️</div>
+                <h3>Salesforce Leadership</h3>
+                <p style="color: var(--gray-mid); margin-top: 1rem;">Platform Manager specializing in scalable architecture and digital transformation. Co-Lead of the Sydney Salesforce User Group.</p>
+            </div>
+            <div class="expertise-card">
+                <div class="expertise-icon">🧬</div>
+                <h3>Healthcare Marketing</h3>
+                <p style="color: var(--gray-mid); margin-top: 1rem;">Deep experience in pharmaceutical and health promotion campaigns, including multi-year collaborations with ViiV Healthcare.</p>
+            </div>
+            <div class="expertise-card">
+                <div class="expertise-icon">🤝</div>
+                <h3>Stakeholder Strategy</h3>
+                <p style="color: var(--gray-mid); margin-top: 1rem;">Expert at navigating complex political and organizational landscapes to deliver tangible results for marginalized communities.</p>
+            </div>
+        </div>
+
+        <div style="margin-top: 4rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 4rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+            <div>
+                <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/a1630161-ed72-40cb-a740-c3351ce414ac" alt="Salesforce Community" style="width: 100%; border-radius: 24px;">
+            </div>
+            <div>
+                <h3 style="font-size: 2rem; margin-bottom: 1.5rem;">The Sydney Salesforce User Group</h3>
+                <p style="color: var(--gray-mid); line-height: 1.8;">As a leader in the Sydney Trailblazer community, I facilitate monthly meetings at the Salesforce Tower, fostering a networking environment for over 1,000+ professionals to share best practices and technical deep dives.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="delegation">
+        <div class="pride-banner">
+            <div class="pride-banner-grid">
+                <div class="pride-banner-content">
+                    <span class="section-tag" style="color: var(--accent-orange);">June 7—13, 2026</span>
+                    <h2>Destination: <br>Tel Aviv Pride</h2>
+                    <p style="font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9;">"As a Rainbow advocate dating an Israeli, visiting Tel Aviv Pride represents the perfect intersection of my personal life, my advocacy, and my professional curiosity about global queer culture."</p>
+                    
+                    <div class="pride-details">
+                        <div class="pride-stat">
+                            <span class="stat-label">Sponsorship</span>
+                            <span class="stat-value">Israeli Embassy Canberra</span>
+                        </div>
+                        <div class="pride-stat">
+                            <span class="stat-label">Co-Sponsor</span>
+                            <span class="stat-value">Dept of Foreign Affairs</span>
+                        </div>
+                        <div class="pride-stat">
+                            <span class="stat-label">Parade Date</span>
+                            <span class="stat-value">Friday, June 12, 2026</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="pride-banner-image">
+                    <img src="https://pplx-res.cloudinary.com/image/upload/v1768264584/search_images/147942111f7fb360c6f3e62a07de140672a6b066.jpg" alt="Tel Aviv Pride Parade">
+                </div>
+            </div>
+            <!-- Decorative circle -->
+            <div style="position: absolute; right: -10%; top: -20%; width: 500px; height: 500px; background: var(--pride-gradient); border-radius: 50%; filter: blur(100px); opacity: 0.3;"></div>
+        </div>
+    </section>
+
+    <section class="section" id="contact" style="text-align: center;">
+        <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Let&rsquo;s start a conversation.</h2>
+        <p style="color: var(--gray-mid); margin-bottom: 3rem;">Available for speaking engagements, technology consulting, and advocacy partnerships.</p>
+        
+        <div style="display: flex; justify-content: center; gap: 4rem; flex-wrap: wrap;">
+            <div>
+                <p class="stat-label">Email</p>
+                <a href="mailto:campbell.clarkson@gmail.com" style="font-size: 1.5rem; font-weight: 800; color: var(--primary); text-decoration: none;">campbell.clarkson@gmail.com</a>
+            </div>
+            <div>
+                <p class="stat-label">Phone</p>
+                <a href="tel:+61468767882" style="font-size: 1.5rem; font-weight: 800; color: var(--primary); text-decoration: none;">+61 468 767 882</a>
+            </div>
+        </div>
+
+        <div class="social-links">
+            <a href="#" class="social-link">LinkedIn</a>
+            <a href="#" class="social-link">Trailhead</a>
+            <a href="#" class="social-link">Twitter/X</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="logo" style="justify-content: center; margin-bottom: 1rem;">
+            <div class="logo-circle">CC</div>
+            <span>CAM CLARKSON</span>
+        </div>
+        <p style="max-width: 600px; margin: 0 auto; color: var(--gray-mid); font-size: 0.85rem;">
+            Bridging technology and human rights. A journey from Christchurch to Sydney, advocating for visibility, health, and innovation.
+        </p>
+        <div class="copyright">
+            © 2026 Cam Clarkson. All Rights Reserved. <br>
+            Official Delegation sponsored by the Israeli Embassy & Department of Foreign Affairs.
+        </div>
+    </footer>
+
+</body>
+</html>
